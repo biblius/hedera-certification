@@ -12,9 +12,7 @@
     "call-contract": "node 3_smartContract/callContract",
     "schedule-tx": "node 4_scheduledTx/scheduleTx",
     "multisig-tx": "node 5_multisigTx/multisigTx",
-    "create-topic": "node 6_consensus/createTopic",
-    "subscribe-topic": "node 6_consensus/subscribeTopic",
-    "submit-message": "node 6_consensus/submitMessage"
+    "consensus": "node 6_consensus/consensus"
   },
   "repository": {
     "type": "git",

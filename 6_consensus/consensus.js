@@ -6,9 +6,10 @@ import {
   TopicMessageQuery
 } from '@hashgraph/sdk'
 import dotenv from 'dotenv'
-import { loadAccounts } from '../utils'
+import { loadAccounts } from '../utils.js'
 
-dotenv.config('.env')
+dotenv.config()
+
 const accounts = loadAccounts()
 
 const accountId1 = accounts[0].id

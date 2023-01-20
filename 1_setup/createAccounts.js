@@ -24,7 +24,7 @@ export async function createAccount(client) {
   // Create a new account
   const newAccount = await new AccountCreateTransaction()
     .setKey(newAccountPublicKey)
-    .setInitialBalance(1500)
+    .setInitialBalance(150)
     .execute(client)
 
   // Get the new account ID

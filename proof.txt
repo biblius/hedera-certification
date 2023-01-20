@@ -1,0 +1,257 @@
+
+> hedera-certification@1.0.0 create-token
+> node 2_tokenService/createToken
+
+The new token ID is 0.0.49354708
+Retrieveing the name
+Retrieveing the symbol
+Retrieveing the totalSupply
+The total supply of the Cthulhu Worship Token token is 35050 of CTH
+The user's balance is 35050
+
+> hedera-certification@1.0.0 transfer-tokens
+> node 2_tokenService/transferTokens
+
+- Token association with Account 3: SUCCESS 
+
+- Token association with Account 4: SUCCESS 
+
+The transaction consensus status SUCCESS
+Executed pause token tx with status:  Status { _code: 22 }
+Expected error occurred: ReceiptStatusError: receipt for transaction 0.0.49354699@1674224167.385403304 contained error status TOKEN_IS_PAUSED
+    at new ReceiptStatusError (file:///Users/jbenkodakovic/hedera-certification/node_modules/@hashgraph/sdk/src/ReceiptStatusError.js:37:9)
+    at TransactionReceiptQuery._mapStatusError (file:///Users/jbenkodakovic/hedera-certification/node_modules/@hashgraph/sdk/src/transaction/TransactionReceiptQuery.js:329:16)
+    at TransactionReceiptQuery.execute (file:///Users/jbenkodakovic/hedera-certification/node_modules/@hashgraph/sdk/src/Executable.js:690:32)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async TransactionResponse.getReceipt (file:///Users/jbenkodakovic/hedera-certification/node_modules/@hashgraph/sdk/src/transaction/TransactionResponse.js:81:25)
+    at async main (file:///Users/jbenkodakovic/hedera-certification/2_tokenService/transferTokens.js:113:28)
+    at async file:///Users/jbenkodakovic/hedera-certification/2_tokenService/transferTokens.js:138:1 {
+  status: Status { _code: 265 },
+  transactionId: TransactionId {
+    accountId: AccountId {
+      shard: [Long],
+      realm: [Long],
+      num: [Long],
+      aliasKey: null,
+      aliasEvmAddress: null,
+      _checksum: null
+    },
+    validStart: Timestamp { seconds: [Long], nanos: [Long] },
+    scheduled: false,
+    nonce: null
+  },
+  transactionReceipt: TransactionReceipt {
+    status: Status { _code: 265 },
+    accountId: null,
+    fileId: null,
+    contractId: null,
+    topicId: null,
+    tokenId: null,
+    scheduleId: null,
+    exchangeRate: ExchangeRate {
+      hbars: 30000,
+      cents: 184321,
+      expirationTime: 2023-01-20T15:00:00.000Z,
+      exchangeRateInCents: 6.144033333333334
+    },
+    topicSequenceNumber: Long { low: 0, high: 0, unsigned: false },
+    topicRunningHash: Uint8Array(0) [],
+    totalSupply: Long { low: 0, high: 0, unsigned: false },
+    scheduledTransactionId: null,
+    serials: [],
+    duplicates: [],
+    children: []
+  }
+}
+Sccessfully unpaused token with status: Status { _code: 22 }
+Sccessfully transfered tokens with status: Status { _code: 22 }
+
+
+
+> hedera-certification@1.0.0 deploy-contract
+> node 3_smartContract/deploy
+
+The smart contract byte code file ID is 0.0.49354719
+The smart contract ID is 0.0.49354720
+
+> hedera-certification@1.0.0 call-contract
+> node 3_smartContract/callContract
+
+SUBMITTED TX TransactionResponse {
+  nodeId: AccountId {
+    shard: Long { low: 0, high: 0, unsigned: false },
+    realm: Long { low: 0, high: 0, unsigned: false },
+    num: Long { low: 6, high: 0, unsigned: false },
+    aliasKey: null,
+    aliasEvmAddress: null,
+    _checksum: null
+  },
+  transactionHash: <Buffer 98 ac 54 94 7d fa db 4f fb 07 a3 a4 46 e2 f6 b6 8d 80 1d 43 c6 b6 1b 72 d0 b0 e2 b0 5b 49 66 18 2c eb 38 92 21 9f c6 4a e6 b9 3b e9 2b 2a 4a c2>,
+  transactionId: TransactionId {
+    accountId: AccountId {
+      shard: [Long],
+      realm: [Long],
+      num: [Long],
+      aliasKey: null,
+      aliasEvmAddress: null,
+      _checksum: null
+    },
+    validStart: Timestamp { seconds: [Long], nanos: [Long] },
+    scheduled: false,
+    nonce: null
+  }
+}
+RECEIPT TransactionReceipt {
+  status: Status { _code: 22 },
+  accountId: null,
+  fileId: null,
+  contractId: ContractId {
+    shard: Long { low: 0, high: 0, unsigned: false },
+    realm: Long { low: 0, high: 0, unsigned: false },
+    num: Long { low: 49354720, high: 0, unsigned: false },
+    evmAddress: null,
+    _checksum: null
+  },
+  topicId: null,
+  tokenId: null,
+  scheduleId: null,
+  exchangeRate: ExchangeRate {
+    hbars: 30000,
+    cents: 184321,
+    expirationTime: 2023-01-20T15:00:00.000Z,
+    exchangeRateInCents: 6.144033333333334
+  },
+  topicSequenceNumber: Long { low: 0, high: 0, unsigned: false },
+  topicRunningHash: Uint8Array(0) [],
+  totalSupply: Long { low: 0, high: 0, unsigned: false },
+  scheduledTransactionId: null,
+  serials: [],
+  duplicates: [],
+  children: []
+}
+The transaction status is SUCCESS
+Successfully executed second contract call with status Status { _code: 22 }
+
+> hedera-certification@1.0.0 schedule-tx
+> node 4_scheduledTx/scheduleTx
+
+Serialized transaction: 0ab1012aae010aa9010a1b0a0c08cdc3aa9e0610aef1dc960312090800100018cbafc417180012060800100018071880cab5ee01220208783200d202750a350880c2d72f12004a2c0a2a0a130a090800100018cbafc41710ffa7d6b90718000a130a090800100018ccafc4171080a8d6b9071800121855736520776974682063617574696f6e206d7920647564651a221220c897ada46d8177aad63831746c647e7b2abacbc1cb10d6eb668cc5dfd02078a512000ab1012aae010aa9010a1b0a0c08cdc3aa9e0610aef1dc960312090800100018cbafc417180012060800100018061880cab5ee01220208783200d202750a350880c2d72f12004a2c0a2a0a130a090800100018cbafc41710ffa7d6b90718000a130a090800100018ccafc4171080a8d6b9071800121855736520776974682063617574696f6e206d7920647564651a221220c897ada46d8177aad63831746c647e7b2abacbc1cb10d6eb668cc5dfd02078a512000ab1012aae010aa9010a1b0a0c08cdc3aa9e0610aef1dc960312090800100018cbafc417180012060800100018041880cab5ee01220208783200d202750a350880c2d72f12004a2c0a2a0a130a090800100018cbafc41710ffa7d6b90718000a130a090800100018ccafc4171080a8d6b9071800121855736520776974682063617574696f6e206d7920647564651a221220c897ada46d8177aad63831746c647e7b2abacbc1cb10d6eb668cc5dfd02078a512000ab1012aae010aa9010a1b0a0c08cdc3aa9e0610aef1dc960312090800100018cbafc417180012060800100018091880cab5ee01220208783200d202750a350880c2d72f12004a2c0a2a0a130a090800100018cbafc41710ffa7d6b90718000a130a090800100018ccafc4171080a8d6b9071800121855736520776974682063617574696f6e206d7920647564651a221220c897ada46d8177aad63831746c647e7b2abacbc1cb10d6eb668cc5dfd02078a512000ab1012aae010aa9010a1b0a0c08cdc3aa9e0610aef1dc960312090800100018cbafc417180012060800100018051880cab5ee01220208783200d202750a350880c2d72f12004a2c0a2a0a130a090800100018cbafc41710ffa7d6b90718000a130a090800100018ccafc4171080a8d6b9071800121855736520776974682063617574696f6e206d7920647564651a221220c897ada46d8177aad63831746c647e7b2abacbc1cb10d6eb668cc5dfd02078a512000ab1012aae010aa9010a1b0a0c08cdc3aa9e0610aef1dc960312090800100018cbafc417180012060800100018031880cab5ee01220208783200d202750a350880c2d72f12004a2c0a2a0a130a090800100018cbafc41710ffa7d6b90718000a130a090800100018ccafc4171080a8d6b9071800121855736520776974682063617574696f6e206d7920647564651a221220c897ada46d8177aad63831746c647e7b2abacbc1cb10d6eb668cc5dfd02078a512000ab1012aae010aa9010a1b0a0c08cdc3aa9e0610aef1dc960312090800100018cbafc417180012060800100018081880cab5ee01220208783200d202750a350880c2d72f12004a2c0a2a0a130a090800100018cbafc41710ffa7d6b90718000a130a090800100018ccafc4171080a8d6b9071800121855736520776974682063617574696f6e206d7920647564651a221220c897ada46d8177aad63831746c647e7b2abacbc1cb10d6eb668cc5dfd02078a51200
+Deserialized Transaction ScheduleCreateTransaction {
+  _maxAttempts: 10,
+  _nodeAccountIds: List {
+    list: [
+      [AccountId],
+      [AccountId],
+      [AccountId],
+      [AccountId],
+      [AccountId],
+      [AccountId],
+      [AccountId]
+    ],
+    locked: true,
+    index: 0
+  },
+  _signOnDemand: false,
+  _minBackoff: null,
+  _maxBackoff: null,
+  _operator: null,
+  _requestTimeout: null,
+  _grpcDeadline: null,
+  _transactions: List {
+    list: [
+      [e], [e], [e],
+      [e], [e], [e],
+      [e]
+    ],
+    locked: false,
+    index: 0
+  },
+  _signedTransactions: List {
+    list: [
+      [e], [e], [e],
+      [e], [e], [e],
+      [e]
+    ],
+    locked: true,
+    index: 0
+  },
+  _signerPublicKeys: Set(0) {},
+  _transactionValidDuration: 120,
+  _defaultMaxTransactionFee: Hbar { _valueInTinybar: 500000000 },
+  _maxTransactionFee: Hbar { _valueInTinybar: 500000000 },
+  _transactionMemo: '',
+  _transactionIds: List { list: [ [TransactionId] ], locked: true, index: 0 },
+  _publicKeys: [],
+  _transactionSigners: [],
+  _regenerateTransactionId: null,
+  _adminKey: PublicKey { _key: PublicKey { _key: [Ed25519PublicKey] } },
+  _scheduledTransaction: null,
+  _payerAccountId: null,
+  _scheduleMemo: 'Use with caution my dude',
+  _scheduledSignerPublicKeys: Set(0) {},
+  _expirationTime: null,
+  _waitForExpiry: null
+}
+Successfully created and executed scheduled transaction with status Status { _code: 22 }
+
+> hedera-certification@1.0.0 multisig-tx
+> node 5_multisigTx/multisigTx
+
+Successfully created allowance TransactionReceipt {
+  status: Status { _code: 22 },
+  accountId: null,
+  fileId: null,
+  contractId: null,
+  topicId: null,
+  tokenId: null,
+  scheduleId: null,
+  exchangeRate: ExchangeRate {
+    hbars: 30000,
+    cents: 184321,
+    expirationTime: 2023-01-20T15:00:00.000Z,
+    exchangeRateInCents: 6.144033333333334
+  },
+  topicSequenceNumber: Long { low: 0, high: 0, unsigned: false },
+  topicRunningHash: Uint8Array(0) [],
+  totalSupply: Long { low: 0, high: 0, unsigned: false },
+  scheduledTransactionId: null,
+  serials: [],
+  duplicates: [],
+  children: []
+}
+Successfully spent allowance TransactionReceipt {
+  status: Status { _code: 22 },
+  accountId: null,
+  fileId: null,
+  contractId: null,
+  topicId: null,
+  tokenId: null,
+  scheduleId: null,
+  exchangeRate: ExchangeRate {
+    hbars: 30000,
+    cents: 184321,
+    expirationTime: 2023-01-20T15:00:00.000Z,
+    exchangeRateInCents: 6.144033333333334
+  },
+  topicSequenceNumber: Long { low: 0, high: 0, unsigned: false },
+  topicRunningHash: Uint8Array(0) [],
+  totalSupply: Long { low: 0, high: 0, unsigned: false },
+  scheduledTransactionId: null,
+  serials: [],
+  duplicates: [],
+  children: []
+}
+- Account 0.0.49354699: 59.23634542 ℏ
+- Account 0.0.49354700: 158.66712325 ℏ
+- Account 0.0.49354701: 170 ℏ
+
+
+> hedera-certification@1.0.0 consensus
+> node 6_consensus/consensus
+
+The newly created topic ID is: 0.0.49354732
+Message receipt:
+{"status":{"_code":22},"accountId":null,"fileId":null,"contractId":null,"topicId":null,"tokenId":null,"scheduleId":null,"exchangeRate":{"hbars":30000,"cents":184321,"expirationTime":"2023-01-20T15:00:00.000Z","exchangeRateInCents":6.144033333333334},"topicSequenceNumber":{"low":1,"high":0,"unsigned":false},"topicRunningHash":{"0":102,"1":73,"2":59,"3":231,"4":7,"5":7,"6":82,"7":64,"8":115,"9":212,"10":249,"11":248,"12":191,"13":63,"14":27,"15":87,"16":29,"17":199,"18":66,"19":181,"20":122,"21":110,"22":248,"23":231,"24":77,"25":250,"26":141,"27":176,"28":177,"29":149,"30":147,"31":155,"32":133,"33":176,"34":94,"35":121,"36":195,"37":25,"38":21,"39":137,"40":134,"41":139,"42":53,"43":115,"44":171,"45":214,"46":203,"47":244},"totalSupply":{"low":0,"high":0,"unsigned":false},"scheduledTransactionId":null,"serials":[],"duplicates":[],"children":[]}
+The message transaction status is: SUCCESS
+Link to topic: https://hashscan.io/testnet/topic/0.0.49354732
+15:18:57 GMT+0100 (Central European Standard Time)
