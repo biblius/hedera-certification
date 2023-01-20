@@ -5,7 +5,16 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "init-accs": "node index"
+    "setup": "node 1_setup/createAccounts",
+    "create-token": "node 2_tokenService/createToken",
+    "transfer-tokens": "node 2_tokenService/transferTokens",
+    "deploy-contract": "node 3_smartContract/deploy",
+    "call-contract": "node 3_smartContract/callContract",
+    "schedule-tx": "node 4_scheduledTx/scheduleTx",
+    "multisig-tx": "node 5_multisigTx/multisigTx",
+    "create-topic": "node 6_consensus/createTopic",
+    "subscribe-topic": "node 6_consensus/subscribeTopic",
+    "submit-message": "node 6_consensus/submitMessage"
   },
   "repository": {
     "type": "git",
@@ -19,7 +28,8 @@
   "homepage": "https://github.com/biblius/hedera-certification#readme",
   "dependencies": {
     "@hashgraph/sdk": "^2.19.2",
-    "dotenv": "^16.0.3"
+    "dotenv": "^16.0.3",
+    "web3": "^1.8.1"
   },
   "devDependencies": {
     "eslint": "^8.32.0",
